@@ -1,16 +1,27 @@
+<?php
+
+require_once 'function/functions.php';
+$kriteria = query("SELECT * FROM kriteria");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Data Kriteria</title>
   <!-- style css -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <div class="sidebar">
-    <div class="logo"><h1>S.P.K</h1></div>
+    <div class="logo">
+      <h1>S.P.K</h1>
+    </div>
     <div class="menu">
       <ul>
         <li><a href="halaman_dashboard.php"><i class="fi fi-rr-dashboard"></i><span>Dashboard</span></a></li>
@@ -28,9 +39,9 @@
   <header>
     <div class="navigasi">
       <div class="dropdown">
-        <button class="dropbtn"> 
-          <img src="image/undraw_male_avatar_g98d.svg" alt=""> 
-          <span>Rahmad Hidayat</span> 
+        <button class="dropbtn">
+          <img src="image/undraw_male_avatar_g98d.svg" alt="">
+          <span>Rahmad Hidayat</span>
         </button>
         <div class="dropdown-content">
           <a href="#">Profile</a>
@@ -40,7 +51,7 @@
     </div>
 
     <div class="content">
-      <div class="head">
+      <div class="head-menu">
         <div class="judul">
           <h1>Data Kriteria</h1>
         </div>
@@ -61,17 +72,22 @@
               <th>Pilihan</th>
               <th>Aksi</th>
             </tr>
+
+            <?php $i=1; ?>
+            <?php foreach ($kriteria as $kta): ?>
             <tr>
-              <td>1</td>
-              <td>C1</td>
-              <td>Pengabdiam</td>
-              <td>2</td>
-              <td>Benefit</td>
+              <td><?= $i; ?></td>
+              <td><?= $kta["kode_kriteria"]; ?></td>
+              <td><?= $kta['nm_kriteria']; ?></td>
+              <td><?= $kta['bobot']; ?></td>
+              <td><?= $kta['pilihan']; ?></td>
               <td>
-                <a href="">Edit</a> |
-                <a href="">Delete</a>
+                <a href="" class="edit"><i class="fi fi-rr-edit" ></i></a> 
+                <a href="" class="delete"><i class="fi fi-rr-trash"></i></a>
               </td>
             </tr>
+            <?php $i++; ?>
+            <?php endforeach; ?>
           </table>
         </div>
       </div>
@@ -84,4 +100,5 @@
       <h4>copyright | Rahmad Hidayat</h4>
   </footer> -->
 </body>
+
 </html>

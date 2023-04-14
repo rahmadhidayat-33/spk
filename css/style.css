@@ -21,6 +21,7 @@
   --color-blue:#5c82ff;
   --color-green:#90ee90;
   --color-green:#daee90;
+  --color-gray:rgb(187, 187, 187);
 }
 
 *{
@@ -30,10 +31,10 @@
   list-style: none;
   text-decoration: none;
 }
-
+/* 
 body{
   background-color:#ffedad ;
-}
+} */
 
 
 /* navigasi */
@@ -41,7 +42,7 @@ body{
     display: flex;
     justify-content: space-between;
     background:var(--color-yellow);
-    border: 1px solid black;
+    border: 3px solid black;
     border-left: 0;
     border-right: 0;
     padding: 0 0 0 7%;
@@ -54,8 +55,6 @@ body{
     font-size: 1.1rem;
     font-weight: 700;
   }
-
-
 
   nav button{
     border-bottom: 0;
@@ -106,7 +105,7 @@ body{
     color: black;
     padding: .8rem 5rem;
     font-size: 1rem;
-    border: 2px solid black;
+    border: 3px solid black;
     background:var(--color-yellow);
     border-radius: 10px ;
     font-family: var(--font-ps);
@@ -151,7 +150,7 @@ body{
     height: min-content;
     background-color: whitesmoke;
     position: absolute;
-    border: 1px solid black;
+    border: 3px solid black;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -171,14 +170,18 @@ body{
 
   .container .login a{
     color: black;
-    padding: .1rem 2rem;
-    border: 2px solid black;
+    padding: 6px 2rem;
+    border: 3px solid black;
     background:var(--color-yellow);
-    border-radius: 5px ;
+    border-radius: 10px ;
     font-family: var(--font-ps);
     font-weight: 700;
     text-align: center;
     box-shadow:3px 3px 0 black ;
+    -webkit-border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -ms-border-radius: 10px ;
+    -o-border-radius: 10px ;
 }
 
 
@@ -216,7 +219,7 @@ body{
     box-shadow: 5px 5px 0 black;
     outline: none;
     background-color: var(--color-yellow);
-    border: 2px solid black;
+    border: 3px solid black;
     font-size: 1.2rem;
     border-radius: 10px;
     cursor: pointer;
@@ -247,7 +250,6 @@ body{
     width: 200px;
     margin-left: 10%;
     line-height: 50px;
-
   }
 
   .sidebar .logo{
@@ -262,9 +264,13 @@ body{
     border-radius: 10px;
     margin-bottom: 10px;
     cursor: pointer;
-    border: 2px solid black;
+    border: 3px solid black;
     box-shadow: 5px 5px 0 black;
 }
+
+  .menu ul li:hover{
+    transform: scale(1.2);
+  }
 
 
   .menu ul li a {
@@ -273,7 +279,6 @@ body{
     color: black;
     justify-content: flex-start;
     padding-left: 20px;   
-  
   }
 
   .menu ul li .fi{
@@ -299,12 +304,16 @@ body{
   color: black;
   font-size: 1rem;
   padding:  10px;
-  border: 1px solid black;
+  border: 3px solid black;
   cursor: pointer;
   box-shadow: 5px 5px 0 black;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .dropbtn img{
@@ -333,7 +342,7 @@ body{
   margin-top: 10px;
   margin-left: 3px;
   box-shadow: 5px 5px 0 black;
-  border: 1px solid black;
+  border: 3px solid black;
   z-index: 1;
   border-radius: 5px;
   font-family: var(--font-ps);
@@ -376,8 +385,21 @@ body{
   padding:20px;
   align-items: center;
   font-family: var(--font-lexed);
-  background-color: white;
-  border: 1px solid black;
+  background:var(--color-yellow);
+  border: 3px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0 black;
+  margin-bottom: 20px;
+}
+
+.head-menu{
+  display: flex;
+  justify-content: space-evenly;
+  padding:20px;
+  align-items: center;
+  font-family: var(--font-lexed);
+  background-color: var(--color-yellow);
+  border: 3px solid black;
   border-radius: 10px;
   box-shadow: 5px 5px 0 black;
   margin-bottom: 20px;
@@ -385,8 +407,8 @@ body{
 
 .head .judul h4{
   font-family: var(--font-ps);
-
 }
+
 .content .head img{
   width: 300px ;
   text-align: center;
@@ -406,7 +428,7 @@ body{
   background-color: white;
   box-shadow: 5px 5px 0 black;
   width: max-content;
-  border: 1px solid black;
+  border: 3px solid black;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -423,21 +445,21 @@ body{
   border-top-left-radius: 10px;
 }
 
-
 .kotak .subkriteria img {
   width: 200px;
   height: 177px;
-  padding-top:20px;
+  padding-top:70px;
   background-color: var(--color-green);
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+
 }
 
 .kotak .alternatif img {
   width: 200px;
   height: 177px;
   padding-top:20px;
-  background-color: var(--color-yellow);
+  background-color: var(--color-back);
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
@@ -467,7 +489,7 @@ body{
   .kelola{
     background-color: white;
     padding: 20px;
-    border: 1px solid black;
+    border: 3px solid black;
     border-radius: 10px;
     box-shadow: 5px 5px 0 black;
   }
@@ -483,9 +505,19 @@ body{
     padding:5px 15px;
     border-radius: 5px ;
     color: black;
-    box-shadow: 5px 5px 0 black;
-    border: 1px solid black;
+    border: 3px solid black;
+    box-shadow: 3px 3px 0 black;
 }
+
+.sub a:hover{
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+
+  
   .sub a:active{
     box-shadow: 1px 1px 0 black;
     transform: translateX(-4);
@@ -495,9 +527,10 @@ body{
     -o-transform: translateX(-4);
 }
 
-  .table{
-    padding: 20px;
-  }
+.table{
+  padding-top: 20px;
+  font-size: 1.1rem;
+}
 
   table{
     width: 100%;
@@ -507,22 +540,50 @@ body{
 
   table, th, td {
     text-align: center;
-    border: 1px solid black;
+    border: 3px solid black;
   }
 
   tr:nth-child(even){
-    background-color: #f2f2f2
+    background-color: var(--color-gray);
   }
 
   th{
-    height: 50px;
-    background-color: var(--color-blue);
-    color: white;    
+    padding: 30px;
+    background-color: var(--color-yellow);
+    color: black;    
   }
 
   td{
     height: 30px;
+    padding: 10px;
   }
+
+  .table a {
+    color: black;
+    padding: 2px;
+    font-size: 1.2rem;
+    padding: 5px;
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+
+  .table .edit{
+    background: var(--color-blue);
+    box-shadow: 3px 3px 0 black;
+  }
+
+  .table .delete{
+    background: var(--color-red);
+    box-shadow: 3px 3px 0 black;
+  }
+
+  
 
 
 /* end kelola */
