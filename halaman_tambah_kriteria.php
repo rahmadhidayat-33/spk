@@ -59,41 +59,51 @@ $kriteria = query("SELECT * FROM kriteria");
 
       <div class="kelola">
         <div class="sub">
-          <h2>Tabel Data Kriteria</h2>
-          <a href="halaman_tambah_kriteria.php">Tambah</a>
+          <h2>Input Data Kriteria</h2>
+          <a href="halaman_kriteria.php">Kembali</a>
         </div>
-        <div class="table">
-          <table>
-            <tr>
-              <th>No</th>
-              <th>Kode Kriteria</th>
-              <th>Nama Kriteria</th>
-              <th>Bobot</th>
-              <th>Pilihan</th>
-              <th>Aksi</th>
-            </tr>
-
-            <?php $i=1; ?>
-            <?php foreach ($kriteria as $kta): ?>
-            <tr>
-              <td><?= $i; ?></td>
-              <td><?= $kta["kode_kriteria"]; ?></td>
-              <td><?= $kta['nm_kriteria']; ?></td>
-              <td><?= $kta['bobot']; ?></td>
-              <td><?= $kta['pilihan']; ?></td>
-              <td>
-                <a href="" class="edit"><i class="fi fi-rr-edit" ></i></a> 
-                <a href="" class="delete"><i class="fi fi-rr-trash"></i></a>
-              </td>
-            </tr>
-            <?php $i++; ?>
-            <?php endforeach; ?>
-          </table>
+        <div class="form-input">
+          <form action="" method="post">
+            <ul>
+              <li>
+                <label>
+                  Kode Kriteria
+                  <br>
+                  <input type="text" name="kodekriteria"  placeholder="Masukkan Kode Kriteria" >
+                </label>
+              </li>
+              <li>
+                <label>
+                  Nama Kriteria
+                  <br>
+                  <input type="text" name="namakriteria" placeholder="Masukkan Nama Kriteria">
+                </label>
+              </li>
+              <li>
+                <label>
+                  Bobot
+                  <br>
+                  <input type="number" name="bobot" placeholder="Masukkan Bobot Kriteria">
+                </label>
+              </li>
+              <li>
+                <label>
+                  Pilihan
+                  <br>
+                  <select name="" id="">
+                    <option value="">Benefit</option>
+                    <option value="">Cost</option>
+                  </select>
+                </label>
+              </li>
+              <button type="submit" name="tambah">Simpan</button>
+            </ul>
+            <img src="image\undraw_forms_re_pkrt.svg" alt="">
+          </form>
         </div>
       </div>
     </div>
   </header>
-
 
 </body>
 

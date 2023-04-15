@@ -27,15 +27,20 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
 }
-/* 
-body{
-  background-color:#ffedad ;
-} */
 
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font: var(--font-ps);
+}
 
 /* navigasi */
   nav{
@@ -130,16 +135,16 @@ body{
     position: absolute;
     width: 100%;
     font-family: var(--font-ps);
-    color: black;
-    bottom: 0;
-
-    padding: 5px;
+    color: white;
+    margin-top: 40px;
     font-size: 1em;
+    background-color: black;
+    padding: 30px;
   }
 
   footer h4{
     position: relative;
-    text-align: center;
+    text-align: center;    
   }
 /* end footer */
 
@@ -201,9 +206,7 @@ body{
     width: 300px;
     height: 30px;
     outline: none;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
+    border-bottom: 3px solid rgb(71, 71, 71);
     background-color: transparent;
     font-size: 1.1rem;
     padding-left: 4px;    
@@ -269,7 +272,7 @@ body{
 }
 
   .menu ul li:hover{
-    transform: scale(1.2);
+    background: #ffce1b;
   }
 
 
@@ -394,8 +397,10 @@ body{
 
 .head-menu{
   display: flex;
-  justify-content: space-evenly;
-  padding:20px;
+  justify-content:center;
+  padding: 10px 100px;
+  width: 100%;
+  height: 100px;
   align-items: center;
   font-family: var(--font-lexed);
   background-color: var(--color-yellow);
@@ -403,6 +408,7 @@ body{
   border-radius: 10px;
   box-shadow: 5px 5px 0 black;
   margin-bottom: 20px;
+  
 }
 
 .head .judul h4{
@@ -508,16 +514,11 @@ body{
     border: 3px solid black;
     box-shadow: 3px 3px 0 black;
 }
-
+  
 .sub a:hover{
-  transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
+  background-color: #fa5a36;
 }
 
-  
   .sub a:active{
     box-shadow: 1px 1px 0 black;
     transform: translateX(-4);
@@ -530,6 +531,8 @@ body{
 .table{
   padding-top: 20px;
   font-size: 1.1rem;
+  display: flex;
+  box-sizing: border-box;
 }
 
   table{
@@ -583,7 +586,68 @@ body{
     box-shadow: 3px 3px 0 black;
   }
 
+  .table .delete:hover{
+    background-color: #fa5a36;
+  }
+
+/* form input */
+.form-input{
+  padding-top: 20px;
+}
+
+.form-input form{
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+
+}
+
+.form-input ul  {
+  z-index: 999;
+}
+
+.form-input ul li {
+  font-size: 1.1rem;
+  padding-bottom: 15px;
+  font-weight: 600;
+}
+
+.form-input button{
+  margin-top: 5px;
+  outline: none;
+  padding: 8px 15%;
+  background: var(--color-blue);
+  border: 3px solid black;
+  box-shadow: 3px 3px 0 black;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.form-input input, select{
+  width: 140%;
+  font-size: 1rem;
+  padding: 2px 3px;
+  border-bottom: 3px solid rgb(71, 71, 71);
+}
+
+.form-input form img{
+  width: 400px;
+  height: 300px;
+  background-color: var(--color-yellow);
+  padding: 20px;
+  box-shadow: 10px 10px 0 black;
+  border: 3px solid black;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+
+/* end form input */
   
-
-
 /* end kelola */

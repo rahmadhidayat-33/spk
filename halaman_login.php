@@ -17,7 +17,7 @@
       <form action="" method="post" class="form-login">
       <h1>Sign In</h1>
           <ul>
-            <li><input type="text" name="username" id="username" placeholder="Username"></li>
+            <li><input type="text" name="username" id="username" placeholder="Username" autofokus></li>
             <li><input type="password" name="password" id="password" placeholder="Password"></li>
           </ul>
         <button type="submit">Sign In</button>
@@ -25,8 +25,5 @@
     </div>
     <img src="image/undraw_sign_in_re_o58h.svg" alt="">
   </div>
-  <footer>
-      <h4>copyright | Rahmad Hidayat</h4>
-  </footer>
 </body>
 </html>

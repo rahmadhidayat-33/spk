@@ -92,8 +92,5 @@
     </div>
   </header>
 
-  <footer>
-      <h4>copyright | Rahmad Hidayat</h4>
-  </footer>
 </body>
 </html>
