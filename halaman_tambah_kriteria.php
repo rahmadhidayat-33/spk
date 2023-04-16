@@ -1,7 +1,20 @@
 <?php
 
 require_once 'function/functions.php';
-$kriteria = query("SELECT * FROM kriteria");
+
+if (isset($_POST['tambah'])) {
+  if (tambahkriteria($_POST)>0){
+    echo "<script>
+            alert ('Data Berhasil Di tambahkan');
+            document.location.href = 'halaman_kriteria.php';
+          </script>";
+  } else {
+    echo "<script>
+            alert ('Data Gagal Di tambahkan');
+            document.location.href = 'halaman_kriteria.php';
+          </script>";
+  }
+}
 
 ?>
 
@@ -69,30 +82,30 @@ $kriteria = query("SELECT * FROM kriteria");
                 <label>
                   Kode Kriteria
                   <br>
-                  <input type="text" name="kodekriteria"  placeholder="Masukkan Kode Kriteria" >
+                  <input type="text" name="kode_kriteria"  placeholder="Masukkan Kode Kriteria" autofocus required>
                 </label>
               </li>
               <li>
                 <label>
                   Nama Kriteria
                   <br>
-                  <input type="text" name="namakriteria" placeholder="Masukkan Nama Kriteria">
+                  <input type="text" name="nm_kriteria" placeholder="Masukkan Nama Kriteria" required>
                 </label>
               </li>
               <li>
                 <label>
                   Bobot
                   <br>
-                  <input type="number" name="bobot" placeholder="Masukkan Bobot Kriteria">
+                  <input type="number" name="bobot" placeholder="Masukkan Bobot Kriteria" required>
                 </label>
               </li>
               <li>
                 <label>
                   Pilihan
                   <br>
-                  <select name="" id="">
-                    <option value="">Benefit</option>
-                    <option value="">Cost</option>
+                  <select name="pilihan" required>
+                    <option value="benefit">Benefit</option>
+                    <option value="cost">Cost</option>
                   </select>
                 </label>
               </li>
