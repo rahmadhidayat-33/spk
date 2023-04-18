@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Sistem Pendukung Keputusan</title>
   <!-- style css -->
   <link rel="stylesheet" href="css/style.css">
   <!-- icon -->
@@ -13,13 +13,13 @@
 <body>
   <nav>
     <div class="logo"><h1>S.P.K</h1></div>
-    <a href="halaman_login.php"><button type="submit">Login</button></a>
+    <a href="program/halaman_login.php"><button type="submit">Login</button></a>
   </nav>
   <main>
     <div class="judul">
       <h1>SISTEM PENDUKUNG KEPUTUSAN</h1>
       <p>Metode <span>simple additive weighting</span> (SAW)</p>
-      <a href="halaman_login.php">Login</a>
+      <a href="program/halaman_login.php">Login</a>
     </div>
     <div class="hero"><img src="image/undraw_grades_re_j7d6.svg" alt=""> </div>
   </main>

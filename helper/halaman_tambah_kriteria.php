@@ -1,17 +1,16 @@
 <?php
 
-require_once 'function/functions.php';
+require_once '../function/functions.php';
 
 if (isset($_POST['tambah'])) {
   if (tambahkriteria($_POST)>0){
     echo "<script>
             alert ('Data Berhasil Di tambahkan');
-            document.location.href = 'halaman_kriteria.php';
+            document.location.href = '../program/halaman_kriteria.php';
           </script>";
   } else {
     echo "<script>
             alert ('Data Gagal Di tambahkan');
-            document.location.href = 'halaman_kriteria.php';
           </script>";
   }
 }
@@ -27,7 +26,7 @@ if (isset($_POST['tambah'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Kriteria</title>
   <!-- style css -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -37,14 +36,14 @@ if (isset($_POST['tambah'])) {
     </div>
     <div class="menu">
       <ul>
-        <li><a href="halaman_dashboard.php"><i class="fi fi-rr-dashboard"></i><span>Dashboard</span></a></li>
-        <li><a href="halaman_kriteria.php"><i class="fi fi-rr-box"></i><span>Data Kriteria</span> </a></li>
-        <li><a href="halaman_subkriteria.php"><i class="fi fi-rr-boxes"></i><span>Data Sub Kriteria</span></a></li>
-        <li><a href="halaman_alternatif.php"><i class="fi fi-rr-users"></i><span>Data Alternatif</span></a></li>
-        <li><a href="halaman_penilaian.php"><i class="fi fi-rs-edit"></i><span>Data Penilaian</span></a></li>
-        <li><a href="halaman_penilaian.php"><i class="fi fi-rr-calculator"></i><span>Data Perhitungan</span></a></li>
-        <li><a href="halaman_penilaian.php"><i class="fi fi-rr-chart-simple"></i><span>Data Hasil Akhir</span></a></li>
-        <li><a href="halaman_penilaian.php"><i class="fi fi-rr-user-add"></i><span>Data User</span></a></li>
+        <li><a href="../program/halaman_dashboard.php"><i class="fi fi-rr-dashboard"></i><span>Dashboard</span></a></li>
+        <li><a href="../program/halaman_kriteria.php"><i class="fi fi-rr-box"></i><span>Data Kriteria</span> </a></li>
+        <li><a href="../program/halaman_subkriteria.php"><i class="fi fi-rr-boxes"></i><span>Data Sub Kriteria</span></a></li>
+        <li><a href="../program/halaman_alternatif.php"><i class="fi fi-rr-users"></i><span>Data Alternatif</span></a></li>
+        <li><a href="../program/halaman_penilaian.php"><i class="fi fi-rs-edit"></i><span>Data Penilaian</span></a></li>
+        <li><a href="../program/halaman_penilaian.php"><i class="fi fi-rr-calculator"></i><span>Data Perhitungan</span></a></li>
+        <li><a href="../program/halaman_penilaian.php"><i class="fi fi-rr-chart-simple"></i><span>Data Hasil Akhir</span></a></li>
+        <li><a href="../program/halaman_penilaian.php"><i class="fi fi-rr-user-add"></i><span>Data User</span></a></li>
       </ul>
     </div>
   </div>
@@ -53,7 +52,7 @@ if (isset($_POST['tambah'])) {
     <div class="navigasi">
       <div class="dropdown">
         <button class="dropbtn">
-          <img src="image/undraw_male_avatar_g98d.svg" alt="">
+          <img src="../image/undraw_male_avatar_g98d.svg" alt="">
           <span>Rahmad Hidayat</span>
         </button>
         <div class="dropdown-content">
@@ -73,7 +72,7 @@ if (isset($_POST['tambah'])) {
       <div class="kelola">
         <div class="sub">
           <h2>Input Data Kriteria</h2>
-          <a href="halaman_kriteria.php">Kembali</a>
+          <a href="../program/halaman_kriteria.php">Kembali</a>
         </div>
         <div class="form-input">
           <form action="" method="post">
@@ -96,7 +95,7 @@ if (isset($_POST['tambah'])) {
                 <label>
                   Bobot
                   <br>
-                  <input type="number" name="bobot" placeholder="Masukkan Bobot Kriteria" required>
+                  <input type="text" name="bobot" placeholder="Masukkan Bobot Kriteria" required>
                 </label>
               </li>
               <li>
@@ -111,7 +110,7 @@ if (isset($_POST['tambah'])) {
               </li>
               <button type="submit" name="tambah">Simpan</button>
             </ul>
-            <img src="image\undraw_forms_re_pkrt.svg" alt="">
+            <img src="../image\undraw_forms_re_pkrt.svg" alt="">
           </form>
         </div>
       </div>
