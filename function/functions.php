@@ -34,6 +34,21 @@ function tambahkriteria($data)
     return mysqli_affected_rows($conn);
 }
 
+function kodeautokriteria()
+{
+    $conn = koneksi();
+    $auto = mysqli_query($conn, "SELECT max(kode_kriteria) as max_code FROM kriteria");
+    $data = mysqli_fetch_array($auto);
+    $code = $data['max_code'];
+    $urutan = (int) substr($code, 1, 3);
+    $urutan++;
+    $huruf = "C";
+    $kd_kat = $huruf . sprintf("%01s", $urutan);
+
+    return $kd_kat;
+}
+
+
 function hapuskriteria($id)
 {
     $conn = koneksi();
@@ -74,4 +89,24 @@ function cari($keyword)
         $rows[] = $row;
     }
     return $rows;
+}
+
+function login($data)
+{
+    $conn = koneksi();
+
+    $username = htmlspecialchars($data['username']);
+    $password = htmlspecialchars($data['password']);
+
+    if (query("SELECT * FROM user WHERE username='$username' && password='$password'")) {
+        // set session
+        $_SESSION['login'] = true;
+        header("Location: halaman_dashboard.php");
+        exit;
+    } else {
+        return [
+            'error' => true,
+            'pesan' => 'username/password salah!'
+        ];
+    }
 }

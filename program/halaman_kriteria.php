@@ -1,7 +1,37 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['login'])) {
+  header("Location: halaman_login.php");
+  exit;
+}
 
 require_once '../function/functions.php';
-$kriteria = query("SELECT * FROM kriteria");
+
+// pagination 
+// konfigurasi
+
+$jmldataperhalaman = 5;
+$jmldata = count(query("SELECT * FROM kriteria"));
+$jmlhalaman = ceil($jmldata / $jmldataperhalaman);
+$halamanaktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+$awaldata = ($jmldataperhalaman * $halamanaktif) - $jmldataperhalaman;
+$jumlahlink = 3;
+
+if ($halamanaktif > $jumlahlink) {
+  $startnumber = $halamanaktif - $jumlahlink;
+} else {
+  $startnumber = 1;
+}
+
+if ($halamanaktif < $jmlhalaman - $jumlahlink) {
+  $endnumber =  $halamanaktif + $jumlahlink;
+} else {
+  $endnumber = $jmlhalaman;
+}
+
+// end pagination
+$kriteria = query("SELECT * FROM kriteria LIMIT $awaldata, $jmldataperhalaman ");
 
 // ketika tombol cari di klik
 if (isset($_POST['cari'])) {
@@ -9,6 +39,7 @@ if (isset($_POST['cari'])) {
 }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +81,7 @@ if (isset($_POST['cari'])) {
         </button>
         <div class="dropdown-content">
           <a href="#">Profile</a>
-          <a href="#">Log Out</a>
+          <a href="logout.php">Log Out</a>
         </div>
       </div>
     </div>
@@ -69,10 +100,32 @@ if (isset($_POST['cari'])) {
             <input type="text" name="keyword" placeholder="Search..." autocomplete="off" autofocus>
             <button type="submit" name="cari"><i class="fi fi-rs-search"></i></button>
           </form>
-          <a href="../helper/halaman_tambah_kriteria.php">Tambah</a>
+          <a href="halaman_tambah_kriteria.php">Tambah</a>
         </div>
 
+        <div class="pagination">
+          <div class="halaman">
+            <?php if ($halamanaktif > 1) : ?>
+              <a href="?halaman=<?= $halamanaktif - 1; ?>">&laquo;</a>
+            <?php endif; ?>
 
+            <?php for ($i = $startnumber; $i <= $endnumber; $i++) : ?>
+              <?php if ($i == $halamanaktif) : ?>
+                <a href="?halaman=<?= $i; ?>" class="page active""><?= $i; ?></a>
+            <?php else : ?>
+              <a href=" ?halaman=<?= $i; ?>" class="page"><?= $i; ?></a>
+              <?php endif; ?>
+            <?php endfor; ?>
+
+            <?php if ($halamanaktif < $jmlhalaman) : ?>
+              <a href="?halaman=<?= $halamanaktif + 1; ?>">&raquo;</a>
+            <?php endif; ?>
+          </div>
+
+          <div class="notif">
+            <p>halaman <?= $halamanaktif; ?> dari <?= $jmlhalaman; ?></p>
+          </div>
+        </div>
 
         <div class="table">
           <table>
@@ -103,8 +156,8 @@ if (isset($_POST['cari'])) {
                 <td><?= $kta['bobot']; ?></td>
                 <td><?= $kta['pilihan']; ?></td>
                 <td>
-                  <a href="../helper/halaman_ubah_kriteria.php?id_kriteria=<?= $kta["id_kriteria"]; ?>" class="edit"><i class="fi fi-rr-edit"></i></a>
-                  <a href="../helper/hapus_kriteria.php?id_kriteria=<?= $kta["id_kriteria"]; ?>" class="delete" onclick="return confirm ('apakah anda yakin untuk mengahapus?')"><i class="fi fi-rr-trash"></i></a>
+                  <a href="halaman_ubah_kriteria.php?id_kriteria=<?= $kta["id_kriteria"]; ?>" class="edit"><i class="fi fi-rr-edit"></i></a>
+                  <a href="hapus_kriteria.php?id_kriteria=<?= $kta["id_kriteria"]; ?>" class="delete" onclick="return confirm ('apakah anda yakin untuk mengahapus?')"><i class="fi fi-rr-trash"></i></a>
                 </td>
               </tr>
               <?php $i++; ?>

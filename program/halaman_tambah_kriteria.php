@@ -1,12 +1,21 @@
 <?php
+session_start();
 
+if (!isset($_SESSION['login'])) {
+  header("Location: halaman_login.php");
+  exit;
+}
 require_once '../function/functions.php';
 
+// membuat kode otomatis
+$kodeauto = kodeautokriteria();
+// end
+
 if (isset($_POST['tambah'])) {
-  if (tambahkriteria($_POST)>0){
+  if (tambahkriteria($_POST) > 0) {
     echo "<script>
             alert ('Data Berhasil Di tambahkan');
-            document.location.href = '../program/halaman_kriteria.php';
+            document.location.href = 'halaman_kriteria.php';
           </script>";
   } else {
     echo "<script>
@@ -36,14 +45,14 @@ if (isset($_POST['tambah'])) {
     </div>
     <div class="menu">
       <ul>
-        <li><a href="../program/halaman_dashboard.php"><i class="fi fi-rr-dashboard"></i><span>Dashboard</span></a></li>
-        <li><a href="../program/halaman_kriteria.php"><i class="fi fi-rr-box"></i><span>Data Kriteria</span> </a></li>
-        <li><a href="../program/halaman_subkriteria.php"><i class="fi fi-rr-boxes"></i><span>Data Sub Kriteria</span></a></li>
-        <li><a href="../program/halaman_alternatif.php"><i class="fi fi-rr-users"></i><span>Data Alternatif</span></a></li>
-        <li><a href="../program/halaman_penilaian.php"><i class="fi fi-rs-edit"></i><span>Data Penilaian</span></a></li>
-        <li><a href="../program/halaman_penilaian.php"><i class="fi fi-rr-calculator"></i><span>Data Perhitungan</span></a></li>
-        <li><a href="../program/halaman_penilaian.php"><i class="fi fi-rr-chart-simple"></i><span>Data Hasil Akhir</span></a></li>
-        <li><a href="../program/halaman_penilaian.php"><i class="fi fi-rr-user-add"></i><span>Data User</span></a></li>
+        <li><a href="halaman_dashboard.php"><i class="fi fi-rr-dashboard"></i><span>Dashboard</span></a></li>
+        <li><a href="halaman_kriteria.php"><i class="fi fi-rr-box"></i><span>Data Kriteria</span> </a></li>
+        <li><a href="halaman_subkriteria.php"><i class="fi fi-rr-boxes"></i><span>Data Sub Kriteria</span></a></li>
+        <li><a href="halaman_alternatif.php"><i class="fi fi-rr-users"></i><span>Data Alternatif</span></a></li>
+        <li><a href="halaman_penilaian.php"><i class="fi fi-rs-edit"></i><span>Data Penilaian</span></a></li>
+        <li><a href="halaman_penilaian.php"><i class="fi fi-rr-calculator"></i><span>Data Perhitungan</span></a></li>
+        <li><a href="halaman_penilaian.php"><i class="fi fi-rr-chart-simple"></i><span>Data Hasil Akhir</span></a></li>
+        <li><a href="halaman_penilaian.php"><i class="fi fi-rr-user-add"></i><span>Data User</span></a></li>
       </ul>
     </div>
   </div>
@@ -57,7 +66,7 @@ if (isset($_POST['tambah'])) {
         </button>
         <div class="dropdown-content">
           <a href="#">Profile</a>
-          <a href="#">Log Out</a>
+          <a href="logout.php">Log Out</a>
         </div>
       </div>
     </div>
@@ -72,7 +81,7 @@ if (isset($_POST['tambah'])) {
       <div class="kelola">
         <div class="sub">
           <h2>Input Data Kriteria</h2>
-          <a href="../program/halaman_kriteria.php">Kembali</a>
+          <a href="halaman_kriteria.php">Kembali</a>
         </div>
         <div class="form-input">
           <form action="" method="post">
@@ -81,7 +90,7 @@ if (isset($_POST['tambah'])) {
                 <label>
                   Kode Kriteria
                   <br>
-                  <input type="text" name="kode_kriteria"  placeholder="Masukkan Kode Kriteria" autofocus required>
+                  <input type="text" name="kode_kriteria" autofocus value="<?= $kodeauto; ?>" readonly>
                 </label>
               </li>
               <li>
@@ -110,7 +119,7 @@ if (isset($_POST['tambah'])) {
               </li>
               <button type="submit" name="tambah">Simpan</button>
             </ul>
-            <img src="../image\undraw_forms_re_pkrt.svg" alt="">
+            <img src="../image/undraw_forms_re_pkrt.svg" alt="">
           </form>
         </div>
       </div>

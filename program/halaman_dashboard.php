@@ -1,5 +1,15 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['login'])) {
+  header("Location: halaman_login.php");
+  exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +18,12 @@
   <!-- style css -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
   <div class="sidebar">
-    <div class="logo"><h1>S.P.K</h1></div>
+    <div class="logo">
+      <h1>S.P.K</h1>
+    </div>
     <div class="menu">
       <ul>
         <li><a href="halaman_dashboard.php"><i class="fi fi-rr-dashboard"></i><span>Dashboard</span></a></li>
@@ -28,13 +41,13 @@
   <header>
     <div class="navigasi">
       <div class="dropdown">
-        <button class="dropbtn"> 
-          <img src="../image/undraw_male_avatar_g98d.svg" alt=""> 
-          <span>Rahmad Hidayat</span> 
+        <button class="dropbtn">
+          <img src="../image/undraw_male_avatar_g98d.svg" alt="">
+          <span>Rahmad Hidayat</span>
         </button>
         <div class="dropdown-content">
           <a href="#">Profile</a>
-          <a href="#">Log Out</a>
+          <a href="logout.php">Log Out</a>
         </div>
       </div>
     </div>
@@ -46,7 +59,7 @@
         </div>
         <img src="../image/undraw_dashboard_re_3b76.svg" alt="">
       </div>
-      
+
       <div class="conten2">
         <div class="kotak">
           <div class="kriteria">
@@ -88,9 +101,10 @@
           </div>
         </div>
 
-      </div>  
+      </div>
     </div>
   </header>
 
 </body>
+
 </html>

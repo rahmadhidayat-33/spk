@@ -1,18 +1,23 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['login'])) {
+  header("Location: halaman_login.php");
+  exit;
+}
 
 require_once '../function/functions.php';
 
+$id = $_GET["id_kriteria"];
 
-$id=$_GET["id_kriteria"];
-
-$kta=query("SELECT * FROM kriteria WHERE id_kriteria=$id")[0];
+$kta = query("SELECT * FROM kriteria WHERE id_kriteria=$id")[0];
 
 
 if (isset($_POST['ubah'])) {
-  if (ubahkriteria($_POST)>0){
+  if (ubahkriteria($_POST) > 0) {
     echo "<script>
             alert ('Data Berhasil Diubah');
-            document.location.href = '../program/halaman_kriteria.php';
+            document.location.href = 'halaman_kriteria.php';
           </script>";
   } else {
     echo "<script>
@@ -42,14 +47,14 @@ if (isset($_POST['ubah'])) {
     </div>
     <div class="menu">
       <ul>
-        <li><a href="../program/halaman_dashboard.php"><i class="fi fi-rr-dashboard"></i><span>Dashboard</span></a></li>
-        <li><a href="../program/halaman_kriteria.php"><i class="fi fi-rr-box"></i><span>Data Kriteria</span> </a></li>
-        <li><a href="../program/halaman_subkriteria.php"><i class="fi fi-rr-boxes"></i><span>Data Sub Kriteria</span></a></li>
-        <li><a href="../program/halaman_alternatif.php"><i class="fi fi-rr-users"></i><span>Data Alternatif</span></a></li>
-        <li><a href="../program/halaman_penilaian.php"><i class="fi fi-rs-edit"></i><span>Data Penilaian</span></a></li>
-        <li><a href="../program/halaman_penilaian.php"><i class="fi fi-rr-calculator"></i><span>Data Perhitungan</span></a></li>
-        <li><a href="../program/halaman_penilaian.php"><i class="fi fi-rr-chart-simple"></i><span>Data Hasil Akhir</span></a></li>
-        <li><a href="../program/halaman_penilaian.php"><i class="fi fi-rr-user-add"></i><span>Data User</span></a></li>
+        <li><a href="halaman_dashboard.php"><i class="fi fi-rr-dashboard"></i><span>Dashboard</span></a></li>
+        <li><a href="halaman_kriteria.php"><i class="fi fi-rr-box"></i><span>Data Kriteria</span> </a></li>
+        <li><a href="halaman_subkriteria.php"><i class="fi fi-rr-boxes"></i><span>Data Sub Kriteria</span></a></li>
+        <li><a href="halaman_alternatif.php"><i class="fi fi-rr-users"></i><span>Data Alternatif</span></a></li>
+        <li><a href="halaman_penilaian.php"><i class="fi fi-rs-edit"></i><span>Data Penilaian</span></a></li>
+        <li><a href="halaman_penilaian.php"><i class="fi fi-rr-calculator"></i><span>Data Perhitungan</span></a></li>
+        <li><a href="halaman_penilaian.php"><i class="fi fi-rr-chart-simple"></i><span>Data Hasil Akhir</span></a></li>
+        <li><a href="halaman_penilaian.php"><i class="fi fi-rr-user-add"></i><span>Data User</span></a></li>
       </ul>
     </div>
   </div>
@@ -63,7 +68,7 @@ if (isset($_POST['ubah'])) {
         </button>
         <div class="dropdown-content">
           <a href="#">Profile</a>
-          <a href="#">Log Out</a>
+          <a href="logout.php">Log Out</a>
         </div>
       </div>
     </div>
@@ -78,17 +83,17 @@ if (isset($_POST['ubah'])) {
       <div class="kelola">
         <div class="sub">
           <h2>Ubah Data Kriteria</h2>
-          <a href="../program/halaman_kriteria.php">Kembali</a>
+          <a href="halaman_kriteria.php">Kembali</a>
         </div>
         <div class="form-input">
           <form action="" method="post">
-            <input type="hidden" name="id_kriteria"  value="<?= $kta['id_kriteria']; ?>">
+            <input type="hidden" name="id_kriteria" value="<?= $kta['id_kriteria']; ?>">
             <ul>
               <li>
                 <label>
                   Kode Kriteria
                   <br>
-                  <input type="text" name="kode_kriteria"  placeholder="Masukkan Kode Kriteria" autofocus required value="<?= $kta['kode_kriteria']; ?>">
+                  <input type="text" name="kode_kriteria" placeholder="Masukkan Kode Kriteria" autofocus required value="<?= $kta['kode_kriteria']; ?>">
                 </label>
               </li>
               <li>
@@ -102,7 +107,7 @@ if (isset($_POST['ubah'])) {
                 <label>
                   Bobot
                   <br>
-                  <input type="text" name="bobot" placeholder="Masukkan Bobot Kriteria" required  value="<?= $kta['bobot']; ?>">
+                  <input type="text" name="bobot" placeholder="Masukkan Bobot Kriteria" required value="<?= $kta['bobot']; ?>">
                 </label>
               </li>
               <li>
