@@ -8,14 +8,17 @@ if (!isset($_SESSION['login'])) {
 require_once '../function/functions.php';
 
 // membuat kode otomatis
-$kodeauto = kodeautokriteria();
+$kodeauto = kodeautosubkriteria();
 // end
 
+$kriteria = query("SELECT * FROM kriteria");
+
+
 if (isset($_POST['tambah'])) {
-  if (tambahkriteria($_POST) > 0) {
+  if (tambahsubkriteria($_POST) > 0) {
     echo "<script>
             alert ('Data Berhasil Di tambahkan');
-            document.location.href = 'halaman_kriteria.php';
+            document.location.href = 'halaman_subkriteria.php';
           </script>";
   } else {
     echo "<script>
@@ -62,7 +65,7 @@ if (isset($_POST['tambah'])) {
       <div class="dropdown">
         <button class="dropbtn">
           <img src="../image/undraw_male_avatar_g98d.svg" alt="">
-          <span>Rahmad Hidayat</span>
+          <span>rahmad</span>
         </button>
         <div class="dropdown-content">
           <a href="#">Profile</a>
@@ -81,39 +84,40 @@ if (isset($_POST['tambah'])) {
       <div class="kelola">
         <div class="sub">
           <h2>Input Data Kriteria</h2>
-          <a href="halaman_kriteria.php">Kembali</a>
+          <a href="halaman_subkriteria.php">Kembali</a>
         </div>
         <div class="form-input">
           <form action="" method="post">
             <ul>
               <li>
                 <label>
-                  Kode Kriteria
+                  Kode Sub Kriteria
                   <br>
-                  <input type="text" name="kode_kriteria" autofocus value="<?= $kodeauto; ?>" readonly>
+                  <input type="text" name="kode_subkriteria" autofocus value="<?= $kodeauto; ?>" readonly autocomplete="off">
                 </label>
               </li>
               <li>
                 <label>
-                  Nama Kriteria
+                  Nama Sub Kriteria
                   <br>
-                  <input type="text" name="nm_kriteria" placeholder="Masukkan Nama Kriteria" required>
+                  <input type="text" name="nm_subkriteria" placeholder="Masukkan Nama Kriteria" required autocomplete="off">
                 </label>
               </li>
               <li>
                 <label>
-                  Bobot
+                  Nilai
                   <br>
-                  <input type="text" name="bobot" placeholder="Masukkan Bobot Kriteria" required>
+                  <input type="text" name="nilai" placeholder="Masukkan Bobot Kriteria" required autocomplete="off">
                 </label>
               </li>
               <li>
                 <label>
-                  Pilihan
+                  Kriteria
                   <br>
-                  <select name="pilihan" required>
-                    <option value="benefit">Benefit</option>
-                    <option value="cost">Cost</option>
+                  <select name="id_kriteria" required>
+                    <?php foreach ($kriteria as $kta) : ?>
+                      <option value="<?= $kta['id_kriteria']; ?>"><?= $kta['nm_kriteria']; ?></option>
+                    <?php endforeach; ?>
                   </select>
                 </label>
               </li>

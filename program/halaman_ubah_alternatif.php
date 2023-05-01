@@ -5,24 +5,27 @@ if (!isset($_SESSION['login'])) {
   header("Location: halaman_login.php");
   exit;
 }
+
 require_once '../function/functions.php';
 
-// membuat kode otomatis
-$kodeauto = kodeautokriteria();
-// end
+$id = $_GET["id_alternatif"];
 
-if (isset($_POST['tambah'])) {
-  if (tambahkriteria($_POST) > 0) {
+$alt = query("SELECT * FROM alternatif WHERE id_alternatif=$id")[0];
+
+
+if (isset($_POST['ubah'])) {
+  if (ubahalternatif($_POST) > 0) {
     echo "<script>
-            alert ('Data Berhasil Di tambahkan');
-            document.location.href = 'halaman_kriteria.php';
+            alert ('Data Berhasil Diubah');
+            document.location.href = 'halaman_alternatif.php';
           </script>";
   } else {
     echo "<script>
-            alert ('Data Gagal Di tambahkan');
+            alert ('Data Gagal Diubah');
           </script>";
   }
 }
+
 
 ?>
 
@@ -33,7 +36,7 @@ if (isset($_POST['tambah'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Kriteria</title>
+  <title>SPK | Ubah Alternatif</title>
   <!-- style css -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -74,50 +77,34 @@ if (isset($_POST['tambah'])) {
     <div class="content">
       <div class="head-menu">
         <div class="judul">
-          <h1>Data Kriteria</h1>
+          <h1>Data Alternatif</h1>
         </div>
       </div>
 
       <div class="kelola">
         <div class="sub">
-          <h2>Input Data Kriteria</h2>
-          <a href="halaman_kriteria.php">Kembali</a>
+          <h2>Ubah Data Alternatif</h2>
+          <a href="halaman_alternatif.php">Kembali</a>
         </div>
         <div class="form-input">
           <form action="" method="post">
+            <input type="hidden" name="id_alternatif" value="<?= $alt['id_alternatif']; ?>">
             <ul>
               <li>
                 <label>
-                  Kode Kriteria
+                  Kode alternatif
                   <br>
-                  <input type="text" name="kode_kriteria" autofocus value="<?= $kodeauto; ?>" readonly>
+                  <input type="text" name="kode_alternatif" placeholder="Masukkan Kode Kriteria" autofocus required value="<?= $alt['kode_alternatif']; ?>">
                 </label>
               </li>
               <li>
                 <label>
-                  Nama Kriteria
+                  Nama alternatif
                   <br>
-                  <input type="text" name="nm_kriteria" placeholder="Masukkan Nama Kriteria" required>
+                  <input type="text" name="nm_alternatif" placeholder="Masukkan Nama Kriteria" required value="<?= $alt['nm_alternatif']; ?>">
                 </label>
               </li>
-              <li>
-                <label>
-                  Bobot
-                  <br>
-                  <input type="text" name="bobot" placeholder="Masukkan Bobot Kriteria" required>
-                </label>
-              </li>
-              <li>
-                <label>
-                  Pilihan
-                  <br>
-                  <select name="pilihan" required>
-                    <option value="benefit">Benefit</option>
-                    <option value="cost">Cost</option>
-                  </select>
-                </label>
-              </li>
-              <button type="submit" name="tambah">Simpan</button>
+              <button type="submit" name="ubah">Ubah</button>
             </ul>
           </form>
         </div>

@@ -12,7 +12,7 @@ require_once '../function/functions.php';
 // konfigurasi
 
 $jmldataperhalaman = 5;
-$jmldata = count(query("SELECT * FROM kriteria"));
+$jmldata = count(query("SELECT * FROM alternatif"));
 $jmlhalaman = ceil($jmldata / $jmldataperhalaman);
 $halamanaktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
 $awaldata = ($jmldataperhalaman * $halamanaktif) - $jmldataperhalaman;
@@ -31,7 +31,7 @@ if ($halamanaktif < $jmlhalaman - $jumlahlink) {
 }
 
 // end pagination
-$kriteria = query("SELECT * FROM kriteria LIMIT $awaldata, $jmldataperhalaman ");
+$alternatif = query("SELECT * FROM alternatif LIMIT $awaldata, $jmldataperhalaman ");
 
 // ketika tombol cari di klik
 if (isset($_POST['cari'])) {
@@ -48,7 +48,7 @@ if (isset($_POST['cari'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S.P.K | Data Kriteria</title>
+  <title>S.P.K | Data Alternatif</title>
   <!-- style css -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -89,18 +89,18 @@ if (isset($_POST['cari'])) {
     <div class="content">
       <div class="head-menu">
         <div class="judul">
-          <h1>Data Kriteria</h1>
+          <h1>Data Alternatif</h1>
         </div>
       </div>
 
       <div class="kelola">
         <div class="sub">
-          <h2>Tabel Data Kriteria</h2>
+          <h2>Tabel Data Alternatif</h2>
           <form action="" method="post" class="cari">
             <input type="text" name="keyword" placeholder="Search..." autocomplete="off" autofocus>
             <button type="submit" name="cari"><i class="fi fi-rs-search"></i></button>
           </form>
-          <a href="halaman_tambah_kriteria.php">Tambah</a>
+          <a href="halaman_tambah_alternatif.php">Tambah</a>
         </div>
 
         <div class="pagination">
@@ -134,12 +134,12 @@ if (isset($_POST['cari'])) {
               <th>No</th>
               <th>Kode Kriteria</th>
               <th>Nama Kriteria</th>
-              <th>Bobot</th>
-              <th>Pilihan</th>
+              <th>Nilai SAW</th>
+              <th>Rangking</th>
               <th>Aksi</th>
             </tr>
 
-            <?php if (empty($kriteria)) : ?>
+            <?php if (empty($alternatif)) : ?>
               <tr>
                 <td colspan="6">
                   <img src="../image/undraw_empty_re_opql.svg" alt="">
@@ -149,16 +149,16 @@ if (isset($_POST['cari'])) {
             <?php endif ?>
 
             <?php $i = 1 + $awaldata; ?>
-            <?php foreach ($kriteria as $kta) : ?>
+            <?php foreach ($alternatif as $alt) : ?>
               <tr>
                 <td><?= $i; ?></td>
-                <td><?= $kta['kode_kriteria']; ?></td>
-                <td><?= $kta['nm_kriteria']; ?></td>
-                <td><?= $kta['bobot']; ?></td>
-                <td><?= $kta['pilihan']; ?></td>
+                <td><?= $alt['kode_alternatif']; ?></td>
+                <td><?= $alt['nm_alternatif']; ?></td>
+                <td><?= $alt['nilai']; ?></td>
+                <td><?= $alt['rangking']; ?></td>
                 <td>
-                  <a href="halaman_ubah_kriteria.php?id_kriteria=<?= $kta["id_kriteria"]; ?>" class="edit"><i class="fi fi-rr-edit"></i></a>
-                  <a href="hapus_kriteria.php?id_kriteria=<?= $kta["id_kriteria"]; ?>" class="delete" onclick="return confirm ('apakah anda yakin untuk mengahapus?')"><i class="fi fi-rr-trash"></i></a>
+                  <a href="halaman_ubah_alternatif.php?id_alternatif=<?= $alt["id_alternatif"]; ?>" class="edit"><i class="fi fi-rr-edit"></i></a>
+                  <a href="hapus_alternatif.php?id_alternatif=<?= $alt["id_alternatif"]; ?>" class="delete" onclick="return confirm ('apakah anda yakin untuk mengahapus?')"><i class="fi fi-rr-trash"></i></a>
                 </td>
               </tr>
               <?php $i++; ?>

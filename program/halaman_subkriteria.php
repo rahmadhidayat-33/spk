@@ -12,7 +12,7 @@ require_once '../function/functions.php';
 // konfigurasi
 
 $jmldataperhalaman = 5;
-$jmldata = count(query("SELECT * FROM kriteria"));
+$jmldata = count(query("SELECT * FROM subkriteria"));
 $jmlhalaman = ceil($jmldata / $jmldataperhalaman);
 $halamanaktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
 $awaldata = ($jmldataperhalaman * $halamanaktif) - $jmldataperhalaman;
@@ -31,7 +31,9 @@ if ($halamanaktif < $jmlhalaman - $jumlahlink) {
 }
 
 // end pagination
-$kriteria = query("SELECT * FROM kriteria LIMIT $awaldata, $jmldataperhalaman ");
+$subkriteria = query("SELECT * FROM subkriteria INNER JOIN kriteria ON subkriteria.id_kriteria = kriteria.id_kriteria LIMIT $awaldata, $jmldataperhalaman");
+
+
 
 // ketika tombol cari di klik
 if (isset($_POST['cari'])) {
@@ -89,23 +91,22 @@ if (isset($_POST['cari'])) {
     <div class="content">
       <div class="head-menu">
         <div class="judul">
-          <h1>Data Kriteria</h1>
+          <h1>Data Sub Kriteria</h1>
         </div>
       </div>
 
       <div class="kelola">
         <div class="sub">
-          <h2>Tabel Data Kriteria</h2>
+          <h2>Tabel Data Sub Kriteria</h2>
           <form action="" method="post" class="cari">
             <input type="text" name="keyword" placeholder="Search..." autocomplete="off" autofocus>
             <button type="submit" name="cari"><i class="fi fi-rs-search"></i></button>
           </form>
-          <a href="halaman_tambah_kriteria.php">Tambah</a>
+          <a href="halaman_tambah_subkriteria.php">Tambah</a>
         </div>
 
         <div class="pagination">
           <div class="halaman">
-
             <?php if ($halamanaktif > 1) : ?>
               <a href="?halaman=<?= $halamanaktif - 1; ?>">&laquo;</a>
             <?php endif; ?>
@@ -132,14 +133,14 @@ if (isset($_POST['cari'])) {
           <table>
             <tr>
               <th>No</th>
-              <th>Kode Kriteria</th>
-              <th>Nama Kriteria</th>
-              <th>Bobot</th>
-              <th>Pilihan</th>
+              <th>Kode Sub Kriteria</th>
+              <th>Nama Sub Kriteria</th>
+              <th>Nilai</th>
+              <th>Kriteria</th>
               <th>Aksi</th>
             </tr>
 
-            <?php if (empty($kriteria)) : ?>
+            <?php if (empty($subkriteria)) : ?>
               <tr>
                 <td colspan="6">
                   <img src="../image/undraw_empty_re_opql.svg" alt="">
@@ -149,16 +150,16 @@ if (isset($_POST['cari'])) {
             <?php endif ?>
 
             <?php $i = 1 + $awaldata; ?>
-            <?php foreach ($kriteria as $kta) : ?>
+            <?php foreach ($subkriteria as $skta) : ?>
               <tr>
                 <td><?= $i; ?></td>
-                <td><?= $kta['kode_kriteria']; ?></td>
-                <td><?= $kta['nm_kriteria']; ?></td>
-                <td><?= $kta['bobot']; ?></td>
-                <td><?= $kta['pilihan']; ?></td>
+                <td><?= $skta['kode_subkriteria']; ?></td>
+                <td><?= $skta['nm_subkriteria']; ?></td>
+                <td><?= $skta['nilai']; ?></td>
+                <td><?= $skta['nm_kriteria']; ?></td>
                 <td>
-                  <a href="halaman_ubah_kriteria.php?id_kriteria=<?= $kta["id_kriteria"]; ?>" class="edit"><i class="fi fi-rr-edit"></i></a>
-                  <a href="hapus_kriteria.php?id_kriteria=<?= $kta["id_kriteria"]; ?>" class="delete" onclick="return confirm ('apakah anda yakin untuk mengahapus?')"><i class="fi fi-rr-trash"></i></a>
+                  <a href="halaman_ubah_subkriteria.php?id_sub=<?= $skta["id_sub"]; ?>" class="edit"><i class="fi fi-rr-edit"></i></a>
+                  <a href="hapus_subkriteria.php?id_sub=<?= $skta["id_sub"]; ?>" class="delete" onclick="return confirm ('apakah anda yakin untuk mengahapus?')"><i class="fi fi-rr-trash"></i></a>
                 </td>
               </tr>
               <?php $i++; ?>

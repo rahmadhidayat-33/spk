@@ -576,13 +576,13 @@ body{
 
 
   th{
-    padding: 20px;
+    padding: 15px;
     background-color: var(--color-yellow);
     color: black;    
   }
 
   td{
-    padding: 8px;
+    padding: 2px;
   }
 
   .table a {
@@ -591,7 +591,6 @@ body{
     font-size: 1.2rem;
     padding: 5px;
     display: inline-block;
-    border: 3px solid black;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -602,29 +601,26 @@ body{
 
   .table .edit{
     background: var(--color-blue);
-    box-shadow: 3px 3px 0 black;
   }
 
   .table .delete{
     background: var(--color-red);
-    box-shadow: 3px 3px 0 black;
   }
 
   .table .delete:hover{
     background-color: #fa5a36;
   }
 
+  .table .edit:hover{
+    background-color: #3c6aff;
+  }
+
 /* form input */
 .form-input{
   padding-top: 20px;
+  
 }
 
-.form-input form{
-  display: flex;
-  justify-content:space-around;
-  align-items: center;
-
-}
 
 .form-input ul  {
   z-index: 999;
@@ -639,7 +635,7 @@ body{
 .form-input button{
   margin-top: 5px;
   outline: none;
-  padding: 8px 15%;
+  padding: 8px 28px ;
   background: var(--color-blue);
   border: 3px solid black;
   box-shadow: 3px 3px 0 black;
@@ -651,25 +647,13 @@ body{
 }
 
 .form-input input, select{
-  width: 140%;
+  width: 100%;
   font-size: 1rem;
   padding: 2px 3px;
   border-bottom: 3px solid rgb(71, 71, 71);
+
 }
 
-.form-input form img{
-  width: 400px;
-  height: 300px;
-  background-color: var(--color-yellow);
-  padding: 20px;
-  box-shadow: 10px 10px 0 black;
-  border: 3px solid black;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
 
 .pagination{
   margin-top: 20px;
