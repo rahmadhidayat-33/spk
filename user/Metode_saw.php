@@ -54,7 +54,7 @@ $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal'] : date('YY-mm-dd');
 
       <div class="container-body">
         <div class="tabel">
-          <table id="example" class="display dataTable" style="width:100%" aria-describedby="example_info">
+          <table>
             <thead>
               <tr>
                 <th>NO</th>
@@ -111,7 +111,7 @@ $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal'] : date('YY-mm-dd');
         </div>
         <div class="container-body">
           <div class="tabel">
-            <table id="example" class="display dataTable" style="width:100%" aria-describedby="example_info">
+            <table>
               <thead>
                 <tr>
                   <th>NO</th>
@@ -160,7 +160,7 @@ $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal'] : date('YY-mm-dd');
         </div>
         <div class="container-body">
           <div class="tabel">
-            <table id="example" class="display dataTable" style="width:100%" aria-describedby="example_info">
+            <table>
               <thead>
                 <tr>
                   <th>NO</th>
@@ -235,7 +235,7 @@ $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal'] : date('YY-mm-dd');
         </div>
         <div class="container-body">
           <div class="tabel">
-            <table id="example" class="display dataTable" style="width:100%" aria-describedby="example_info">
+            <table>
               <thead>
                 <tr>
                   <th>NO</th>
@@ -319,7 +319,7 @@ $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal'] : date('YY-mm-dd');
         </div>
         <div class="container-body">
           <div class="tabel">
-            <table id="example" class="display dataTable" style="width:100%" aria-describedby="example_info">
+            <table>
               <thead>
                 <tr>
                   <th>NO</th>
