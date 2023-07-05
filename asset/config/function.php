@@ -98,7 +98,7 @@ function hapusalternatif($id)
 function hapuspenilaian($id)
 {
   $conn = koneksi();
-  mysqli_query($conn, "DELETE FROM tbl_penilaian WHERE nip=$id") or die(mysqli_error($conn));
+  mysqli_query($conn, "DELETE FROM tbl_penilaian WHERE nip=$id ") or die(mysqli_error($conn));
   return mysqli_affected_rows($conn);
 }
 
@@ -115,13 +115,12 @@ function ubahalternatif($data)
   $jabatan = htmlspecialchars($data['jabatan']);
 
   $query = "UPDATE tbl_alternatif SET 
-            nip = '$nip',
             nama_alternatif = '$nama',
             jenis_kelamin = '$jk',
             gol = '$gol',
             program_studi = '$program',
             jabatan = '$jabatan'
-            ";
+            WHERE nip = $nip";
 
   mysqli_query($conn, $query) or die(mysqli_error($conn));
   return mysqli_affected_rows($conn);

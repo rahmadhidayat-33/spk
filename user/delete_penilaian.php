@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+  header("location: ../index.php");
+  exit;
+}
 require_once '../asset/config/function.php';
 
 $id = $_GET['nip'];

@@ -1,10 +1,18 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+  header("location: ../index.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Sistem Pendukung Keputusan</title>
   <link rel="stylesheet" href="../asset/css/style.css">
   <link rel="stylesheet" href="../datatables/datatables.css">
   <script src="../datatables/datatables.js"></script>
@@ -21,7 +29,7 @@
     </div>
     <div class="menu">
       <ul>
-        <li><a href="dashboard_admin.php">Dashboard</a></li>
+        <li><a href="dashboard_user.php">Dashboard</a></li>
         <li><a href="read_penilaian.php">Penilaian</a></li>
         <li><a href="Metode_saw.php">Metode saw</a></li>
         <li><a href="rangking.php">Rengking</a></li>
@@ -30,12 +38,22 @@
     </div>
   </header>
   <main>
-    <h1>Selamat Datang User</h1>
+    <div class="container-dash">
+      <div class="label">
+        <h1>SISTEM PENDUKUNG </h1>
+        <h1 class="b">KEPUTUSAN</h1>
+        <h3>Welcome, <?php echo $_SESSION["nama_lengkap"]; ?></h3> <!-- Tampilkan nama pengguna -->
+      </div>
+      <div class="label2">
+        <img src="../asset/img/Group 1.png" alt="">
+      </div>
+    </div>
   </main>
 
   <footer>
     <h4>rahmad hidayat</h4>
   </footer>
+
 </body>
 
 </html>

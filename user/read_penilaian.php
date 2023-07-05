@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+  header("location: ../index.php");
+  exit;
+}
 require_once '../asset/config/function.php';
 
 ?>
@@ -9,7 +15,7 @@ require_once '../asset/config/function.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Sistem Pendukung Keputusan</title>
   <link rel="stylesheet" href="../asset/css/style.css">
   <link rel="stylesheet" href="../datatables/datatables.css">
   <script src="../datatables/datatables.js"></script>
@@ -26,7 +32,7 @@ require_once '../asset/config/function.php';
     </div>
     <div class="menu">
       <ul>
-        <li><a href="dashboard_admin.php">Dashboard</a></li>
+        <li><a href="dashboard_user.php">Dashboard</a></li>
         <li><a href="read_penilaian.php">Penilaian</a></li>
         <li><a href="Metode_saw.php">Metode saw</a></li>
         <li><a href="rangking.php">Rengking</a></li>
@@ -35,14 +41,14 @@ require_once '../asset/config/function.php';
     </div>
   </header>
   <main>
+    <h1>- -Penilaian- -</h1>
     <div class="container">
-      <div class="container-head">
-        <h1>Penilaian</h1>
-      </div>
       <div class="container-body">
-        <a href="create_penilaian.php">Tambah</a>
-        <div class="tabel">
+        <div class="container-head">
+          <a href="create_penilaian.php" class="tambah">Tambah</a>
+        </div>
 
+        <div class="tabel">
           <table id="example" class="display dataTable" style="width:100%" aria-describedby="example_info">
             <thead>
               <tr>
@@ -60,7 +66,7 @@ require_once '../asset/config/function.php';
             <tbody>
               <?php $alternatifQuery = query("SELECT DISTINCT  a.nip, a.nama_alternatif, p.tanggal
                                       FROM tbl_alternatif a
-                                      INNER JOIN tbl_penilaian p ON a.nip = p.nip ORDER BY tanggal") ?>
+                                      INNER JOIN tbl_penilaian p ON a.nip = p.nip ORDER BY nip") ?>
               <?php $no = 1; ?>
               <?php foreach ($alternatifQuery as $altquery) : ?>
                 <tr>
@@ -76,8 +82,8 @@ require_once '../asset/config/function.php';
                     <td><?= $sub['sub']; ?></td>
                   <?php endforeach; ?>
                   <td>
-                    <a href="update_penilaian.php?nip=<?= $altquery['nip']; ?>">edit</a>
-                    <a href="delete_penilaian.php?nip=<?= $altquery['nip']; ?>" onclick="return confirm('apakah yakin mau di hapus?')"">hapus</a>
+                    <a href="update_penilaian.php?nip=<?= $altquery['nip']; ?>" class="aksi edit">edit</a>
+                    <a href="delete_penilaian.php?nip=<?= $altquery['nip']; ?>" onclick="return confirm('apakah yakin mau di hapus?')" class="aksi hapus">hapus</a>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -85,6 +91,7 @@ require_once '../asset/config/function.php';
           </table>
         </div>
       </div>
+    </div>
     </div>
   </main>
 
@@ -97,5 +104,7 @@ require_once '../asset/config/function.php';
 <script>
   $('#example').DataTable();
 </script>
+
+
 
 </html>
