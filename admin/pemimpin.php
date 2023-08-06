@@ -6,7 +6,7 @@ if (!isset($_SESSION["login"])) {
   exit;
 }
 require_once '../asset/config/function.php';
-$query = query("SELECT * FROM tbl_alternatif ORDER BY nip ");
+$query = query("SELECT * FROM tbl_pimpinan ");
 ?>
 
 <!DOCTYPE html>
@@ -42,23 +42,15 @@ $query = query("SELECT * FROM tbl_alternatif ORDER BY nip ");
     </div>
   </header>
   <main>
-    <h1> - - Alternatif - -</h1>
+    <h1>PIMPINAN</h1>
     <div class="container">
       <div class="container-body">
-        <div class="container-head">
-          <a href="create_alternatif.php">Tambah</a>
-        </div>
         <div class="tabel">
           <table id="example" class="cell-border" style="width:100%" aria-describedby="example_info">
             <thead>
               <tr>
                 <th>NO</th>
-                <th>NIP</th>
                 <th>NAMA</th>
-                <th>JENIS KELAMIN</th>
-                <th>GOL</th>
-                <th>PROGRAM STUDY</th>
-                <th>JABATAN SEBELUMNYA</th>
                 <th>AKSI</th>
               </tr>
             </thead>
@@ -68,15 +60,9 @@ $query = query("SELECT * FROM tbl_alternatif ORDER BY nip ");
                 <?php foreach ($query as $data) : ?>
 
                   <td><?= $no; ?></td>
-                  <td><?= $data['nip']; ?></td>
-                  <td><?= $data['nama_alternatif']; ?></td>
-                  <td><?= $data['jenis_kelamin']; ?></td>
-                  <td><?= $data['gol']; ?></td>
-                  <td><?= $data['program_studi']; ?></td>
-                  <td><?= $data['jabatan']; ?></td>
+                  <td><?= $data['nama_pimpinan']; ?></td>
                   <td>
-                    <a href="update_alternatif.php?nip=<?= $data['nip']; ?>" class="aksi edit">edit</a>
-                    <a href="delete_alternatif.php?nip=<?= $data['nip']; ?>" onclick="return confirm('apakah yakin mau di hapus?')" class="aksi hapus">hapus</a>
+                    <a href="update_pimpinan.php?id=<?= $data['id']; ?>" class="aksi edit">edit</a>
                   </td>
               </tr>
               <?php $no++; ?>
@@ -88,8 +74,6 @@ $query = query("SELECT * FROM tbl_alternatif ORDER BY nip ");
     </div>
   </main>
 
-
-</body>
 
 <script>
   $('#example').DataTable();

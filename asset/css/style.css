@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400&display=swap");
 
-:root{
-  --green : #E1FC96;
-  --black : #000;
-  --white : #fff;
-  --bebas : 'Bebas Neue', sans-serif;
-  --robot : 'Roboto', sans-serif;
+:root {
+  --green: #e1fc96;
+  --black: #000;
+  --white: #fff;
+  --bebas: "Bebas Neue", sans-serif;
+  --robot: "Roboto", sans-serif;
 }
 
-
-*{
+* {
   padding: 0;
   margin: 0;
   text-decoration: none;
@@ -17,27 +16,26 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   position: relative;
   background: var(--green);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 ::-webkit-scrollbar {
-  background-color:  transparent;
+  background-color: transparent;
   width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #fc9d96;
-  
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #ff3131;
 }
 
-.container-login{
+.container-login {
   position: absolute;
   top: 10%;
   left: 35%;
@@ -45,7 +43,7 @@ body{
   text-align: center;
 }
 
-.container-login h1{
+.container-login h1 {
   font-family: var(--bebas);
   font-size: 100px;
   text-align: center;
@@ -53,25 +51,35 @@ body{
   color: rgb(138, 149, 253);
 }
 
-.container-login .container-form{
+.container-login .container-form {
   background: rgb(138, 220, 253);
   padding: 40px;
-  border-radius:10px;
+  border-radius: 10px;
   border: 5px solid var(--black);
-  box-shadow: 10px 10px 0px 0px var(--black);  
+  box-shadow: 10px 10px 0px 0px var(--black);
 }
 
-.container-login .form-login ul{
-  margin-top: 15px;
-}
-
-.container-login .form-login li{
+.container-login .form-login li {
   height: 60px;
   padding: 10px;
 }
 
+.container-login .pilih {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
-.container-login  input, button{
+.container-login label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--bebas);
+  font-size: 1.5em;
+}
+
+.container-login input,
+button {
   font-size: 1.5em;
   width: 100%;
   padding: 5px 5px;
@@ -79,35 +87,35 @@ body{
   border-radius: 5px;
 }
 
-.container-login  input::placeholder{
+.container-login input::placeholder {
   font-family: var(--bebas);
 }
 
-.container-login .form-login  button{
+.container-login .form-login button {
   background: #fc9696;
 }
 
 /* footer */
-footer{
-  position: fixed;
-  width: 10%;
-  top: 96%;
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
   text-align: center;
   color: var(--white);
   font-family: var(--robot);
-  text-transform:capitalize;
+  text-transform: capitalize;
   background-color: #020202;
   padding: 5px;
 }
 
-header{
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 3%;
 }
 
-.logo{
+.logo {
   font-family: var(--bebas);
   font-size: 1.4rem;
   background: var(--black);
@@ -117,9 +125,9 @@ header{
   border-bottom-right-radius: 5px;
 }
 
-.menu li{
+.menu li {
   display: inline;
-  padding: 10px ;
+  padding: 10px;
   font-size: 1.2rem;
 }
 
@@ -129,7 +137,7 @@ header{
   background-color: rgb(179, 191, 245);
   display: inline-block;
   padding: 10px;
-  box-shadow: 5px 5px  var(--black);
+  box-shadow: 5px 5px var(--black);
   border-radius: 5px;
   border: 4px solid var(--black);
   font-family: var(--robot);
@@ -140,20 +148,19 @@ header{
   -o-transform: rotate(2deg);
 }
 
-.menu li a:hover{
+.menu li a:hover {
   transform: rotate(0deg);
   background-color: white;
-  
 }
 
-main{
+main {
   margin: 2px 3%;
   border-radius: 5px;
   font-family: var(--robot);
   flex: 1;
 }
 
-main h1{
+main h1 {
   position: relative;
   font-family: var(--bebas);
   font-size: 60px;
@@ -173,11 +180,11 @@ main .container-dash {
   align-items: center;
 }
 
-main .container-dash h1{
+main .container-dash h1 {
   font-size: 100px;
 }
 
-main .container-dash .b{
+main .container-dash .b {
   font-size: 100px;
   transform: rotate(1deg);
   color: rgb(146, 138, 253);
@@ -192,7 +199,11 @@ main .container-dash h3 {
   font-size: 60px;
 }
 
-.container{
+.container-dash .label img {
+  width: 100%;
+}
+
+.container {
   background: rgb(138, 253, 153);
   margin-top: 20px;
   padding: 20px;
@@ -209,9 +220,9 @@ main .container-dash h3 {
   margin: 0px 0px 30px;
 }
 
-.container-head a{
+.container-head a {
   position: relative;
-  bottom:5px;
+  bottom: 5px;
   color: black;
   margin: 20px;
   border: 5px solid black;
@@ -226,7 +237,7 @@ main .container-dash h3 {
   -o-transform: rotate(20deg);
 }
 
-.container-head a:hover{
+.container-head a:hover {
   background: rgb(140, 195, 199);
   transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
@@ -235,7 +246,7 @@ main .container-dash h3 {
   -o-transform: rotate(0deg);
 }
 
-.container-body{
+.container-body {
   background: whitesmoke;
   padding: 0px 6px 14px;
   box-sizing: border-box;
@@ -247,30 +258,28 @@ main .container-dash h3 {
   -o-border-radius: 5px;
 }
 
-
 /* input */
-.container-input{
+.container-input {
   width: 500px;
-  margin:0px auto;
+  margin: 0 auto;
   padding: 0 3%;
-  bottom: 20px;
 }
 
-.container-form{
+.container-form {
   background: rgb(138, 253, 186);
   padding: 40px;
-  border-radius:10px;
+  border-radius: 10px;
   border: 5px solid var(--black);
   box-shadow: 10px 10px 0px 0px var(--black);
 }
 
-.input-head{
+.input-head {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
 }
 
-.input-head img{
+.input-head img {
   position: absolute;
   left: 65%;
   top: 60%;
@@ -281,11 +290,10 @@ main .container-dash h3 {
   -o-transform: rotate(40deg);
 }
 
-
-.input-head h1{
+.input-head h1 {
   position: relative;
   top: 40px;
-  right:50%;
+  right: 50%;
   font-family: var(--bebas);
   font-size: 60px;
   text-shadow: 4px 3px rgb(0, 0, 0);
@@ -297,7 +305,7 @@ main .container-dash h3 {
   -o-transform: rotate(-3deg);
 }
 
-.input-head a{
+.input-head a {
   color: black;
   position: relative;
   top: 150px;
@@ -305,21 +313,23 @@ main .container-dash h3 {
   background-color: rgb(255, 114, 114);
   display: inline-block;
   padding: 10px;
-  box-shadow: 5px 5px  var(--black);
+  box-shadow: 5px 5px var(--black);
   border-radius: 5px;
   border: 4px solid var(--black);
   font-family: var(--robot);
   transform: rotate(4deg);
 }
 
-.input-head a:hover{
+.input-head a:hover {
   transform: rotate(0deg);
 }
-.container-form{
+.container-form {
   font-family: var(--robot);
 }
 
-.container-form input, select, button{
+.container-form input,
+select,
+button {
   padding: 5px 5px;
   border: 3px solid var(--black);
   border-radius: 5px;
@@ -327,29 +337,29 @@ main .container-dash h3 {
   font-size: 1.2rem;
 }
 
-.container-form  button{
-margin-top: 20px;
-background: #fc96f3;
-cursor: pointer;
+.container-form button {
+  margin-top: 20px;
+  background: #fc96f3;
+  cursor: pointer;
 }
 
-.container-form input::placeholder{
+.container-form input::placeholder {
   font-family: var(--bebas);
 }
 
-.container-head label{
+.container-head label {
   font-family: var(--bebas);
   font-size: 1.6rem;
 }
 
-.container-head input{
+.container-head input {
   padding: 3px 5px;
   border: 3px solid var(--black);
   border-radius: 5px;
   font-size: 1.2rem;
 }
 
-.container-head .filter{
+.container-head .filter {
   padding: 4px 5px;
   box-shadow: 4px 4px rgb(0, 0, 0);
   border: 3px solid var(--black);
@@ -364,7 +374,7 @@ cursor: pointer;
   -o-transform: rotate(3deg);
 }
 
-.container-head .filter:hover{
+.container-head .filter:hover {
   background-color: whitesmoke;
   transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
@@ -373,7 +383,7 @@ cursor: pointer;
   -o-transform: rotate(0deg);
 }
 
-.proses{
+.proses {
   position: relative;
   top: 110px;
   right: 30px;
@@ -390,7 +400,7 @@ cursor: pointer;
   -ms-transform: rotate(3deg);
   -o-transform: rotate(3deg);
 }
-.proses:hover{
+.proses:hover {
   background-color: whitesmoke;
   transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
@@ -399,11 +409,11 @@ cursor: pointer;
   -o-transform: rotate(0deg);
 }
 
-.tbl{
+.tbl {
   position: relative;
   width: 100%;
   text-align: center;
-  border-collapse:collapse ;
+  border-collapse: collapse;
   background-color: whitesmoke;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -412,7 +422,7 @@ cursor: pointer;
   -o-border-radius: 4px;
 }
 
-.tbl tr th{
+.tbl tr th {
   border: 4px solid black;
   padding: 10px;
 }
@@ -422,11 +432,11 @@ cursor: pointer;
   padding: 3px;
 }
 
-.tbl1{
+.tbl1 {
   position: relative;
   width: 100%;
   text-align: center;
-  border-collapse:collapse ;
+  border-collapse: collapse;
   background-color: whitesmoke;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -435,7 +445,7 @@ cursor: pointer;
   -o-border-radius: 4px;
 }
 
-.tbl1 tr th{
+.tbl1 tr th {
   border: 2px solid black;
   padding: 10px;
 }
@@ -445,7 +455,7 @@ cursor: pointer;
   padding: 3px;
 }
 
-table .aksi{
+table .aksi {
   padding: 5px;
   color: white;
   border-radius: 3px;
@@ -455,15 +465,14 @@ table .aksi{
   -o-border-radius: 3px;
 }
 
-table .edit{
+table .edit {
   background-color: rgb(60, 72, 240);
 }
-table .hapus{
+table .hapus {
   background-color: rgb(240, 60, 60);
 }
 
-.cetak{
-  
+.cetak {
   padding: 4px 5px;
   border: 3px solid var(--black);
   border-radius: 5px;
@@ -478,7 +487,7 @@ table .hapus{
   -o-transform: rotate(-3deg);
 }
 
-.cetak:hover{
+.cetak:hover {
   background-color: whitesmoke;
   transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
@@ -487,40 +496,47 @@ table .hapus{
   -o-transform: rotate(0deg);
 }
 
-.container-report{
+.container-report {
   width: 800px;
   margin: 50px auto;
   font-family: var(--robot);
 }
 
-.container-report .kop{
+.container-report .kop {
   display: flex;
   justify-content: space-between;
-  align-items:center;
-  margin-bottom: 30px;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-h2{
-  padding:0 110px;
+.jud h2 {
+  padding: 0 110px;
   text-align: center;
   margin-bottom: 20px;
-  text-transform:uppercase;
+  text-transform: uppercase;
 }
 
-.label2 img{
-  width: 100%;
+.jud p {
+  padding: 0 110px;
+  text-align: center;
+  margin-bottom: 20px;
+  /* margin-left: 90px; */
+  text-transform: uppercase;
 }
 
-.ttd{
+.kop img {
+  width: 10%;
+}
+
+.ttd {
   position: relative;
   margin-top: 30px;
   display: flex;
   justify-content: right;
   right: 30px;
-
 }
 
-.nama  {
+.nama {
   position: relative;
   padding-bottom: 30px;
   right: 100px;
@@ -529,14 +545,3 @@ h2{
   margin-top: 100px;
   right: 65px;
 }
-
-
-
-
-
-
-
-
-
-
-

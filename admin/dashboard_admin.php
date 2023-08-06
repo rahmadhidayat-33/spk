@@ -34,6 +34,7 @@ require_once '../asset/config/function.php';
       <ul>
         <li><a href="dashboard_admin.php">Home</a></li>
         <li><a href="read_alternatif.php">Alternatif</a></li>
+        <li><a href="pemimpin.php">Pimpinan</a></li>
         <li><a href="../logout.php">Logout</a></li>
       </ul>
     </div>

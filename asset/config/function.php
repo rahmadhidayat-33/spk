@@ -43,6 +43,25 @@ function tambahalternatif($data)
   }
 }
 
+function tambahpimpinan($data)
+{
+  $conn = koneksi();
+  $id = htmlspecialchars($data['id']);
+  $nama = htmlspecialchars($data['nama_pimpinan']);
+
+  // Periksa apakah NIP sudah ada
+  $query_check_nip = query("SELECT COUNT(*) AS total FROM tbl_pimpinan WHERE id = '$id'");
+  $result_check_nip = $query_check_nip[0]['total'];
+
+  if ($result_check_nip > 0) {
+    return 0; // NIP sudah ada, kembalikan nilai 0 untuk menandakan gagal menambahkan data
+  } else {
+    $query = "INSERT INTO tbl_pimpinan VALUES ('$id', '$nama')";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+    return mysqli_affected_rows($conn);
+  }
+}
+
 function tambahpenilaian($data)
 {
   $conn = koneksi();
@@ -95,6 +114,14 @@ function hapusalternatif($id)
   return mysqli_affected_rows($conn);
 }
 
+function hapuspimpinan($id)
+{
+  $conn = koneksi();
+  mysqli_query($conn, "DELETE FROM tbl_pimpinan WHERE id=$id") or die(mysqli_error($conn));
+  return mysqli_affected_rows($conn);
+}
+
+
 function hapuspenilaian($id)
 {
   $conn = koneksi();
@@ -125,6 +152,21 @@ function ubahalternatif($data)
   mysqli_query($conn, $query) or die(mysqli_error($conn));
   return mysqli_affected_rows($conn);
 }
+
+function ubahpimpinan($data)
+{
+  $conn = koneksi();
+  $id = htmlspecialchars($data['id']);
+  $nama = htmlspecialchars($data['nama_pimpinan']);
+
+  $query = "UPDATE tbl_pimpinan SET 
+            nama_pimpinan = '$nama'
+            WHERE id = $id";
+
+  mysqli_query($conn, $query) or die(mysqli_error($conn));
+  return mysqli_affected_rows($conn);
+}
+
 
 function ubahpenilaian($data)
 {

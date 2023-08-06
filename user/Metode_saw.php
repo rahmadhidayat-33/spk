@@ -34,7 +34,7 @@ $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal'] : date('dd-mm-YY');
     </div>
     <div class="menu">
       <ul>
-        <li><a href="dashboard_user.php">Dashboard</a></li>
+        <li><a href="dashboard_user.php">Home</a></li>
         <li><a href="read_penilaian.php">Penilaian</a></li>
         <li><a href="Metode_saw.php">Metode saw</a></li>
         <li><a href="rangking.php">Rengking</a></li>
@@ -405,10 +405,6 @@ $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal'] : date('dd-mm-YY');
     <?php endif; ?>
   </main>
 
-  <footer>
-    <h4>rahmad hidayat</h4>
-  </footer>
-</body>
 
 <script>
   $('#example').DataTable();

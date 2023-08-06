@@ -46,6 +46,7 @@ if (isset($_POST['tambah'])) {
       <ul>
         <li><a href="dashboard_admin.php">Home</a></li>
         <li><a href="read_alternatif.php">Alternatif</a></li>
+        <li><a href="pemimpin.php">Pimpinan</a></li>
         <li><a href="../logout.php">Logout</a></li>
       </ul>
     </div>
@@ -124,9 +125,6 @@ if (isset($_POST['tambah'])) {
     </div>
   </div>
 
-  <footer>
-    Rahmad Hidayat
-  </footer>
   <script>
     $('#example').DataTable();
   </script>

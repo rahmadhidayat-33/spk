@@ -32,7 +32,7 @@ require_once '../asset/config/function.php';
     </div>
     <div class="menu">
       <ul>
-        <li><a href="dashboard_user.php">Dashboard</a></li>
+        <li><a href="dashboard_user.php">Home</a></li>
         <li><a href="read_penilaian.php">Penilaian</a></li>
         <li><a href="Metode_saw.php">Metode saw</a></li>
         <li><a href="rangking.php">Rengking</a></li>
@@ -95,9 +95,7 @@ require_once '../asset/config/function.php';
     </div>
   </main>
 
-  <footer>
-    <h4>rahmad hidayat</h4>
-  </footer>
+
 </body>
 
 
